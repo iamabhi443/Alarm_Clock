@@ -17,28 +17,34 @@
             <span id="clock"> </span>
         </div>
 
-        <form id="set-alarm-field">
-            <label><h3>Set Alarm</h3></label>    
+        <form class="setAlarm">
+            <label class="alarm-heading"><h3>Set Alarm</h3></label>    
 
+            <div class="set-alarm-field">
             <input type="number" name="hours" id="hours" placeholder="HH" max="12" min="00">
             <input type="number" name="minutes" id="minutes" placeholder="MM" max="59" min="00">
-            <input type="number" name="seconds" id="hours" placeholder="SS" max="59" min="00">
-        </form>
+            <input type="number" name="seconds" id="seconds" placeholder="SS" max="59" min="00">
+            <select name="sessions" id="sessions">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+            </select>
+        </div> 
 
         <div id="controls"> 
-            <button type="submit" id="submitButton" form="set-alarm-field" > Set Alarm </button>
-            <button type="reset" id="stopButton" form="set-alarm-field"> Stop Alarm </button>
+            <button type="submit" class="set-alarm" > Set Alarm </button>
+            <button type="reset" onclick="clearAlarm()" class="clear-alarm" > Stop Alarm </button>
         </div>
+    </form>
     </section>
 
     <hr>
 
     <section>
-        <div id="upcomingAlarms">
-            <h3>Upcoming Alarms</h3>
+        <div>
+            <h3 class="alarm-heading">Upcoming Alarms</h3>
         </div>
         <div>
-            <ul id="alarmList">
+            <ul id="myList">
 
             </ul>
         </div>
