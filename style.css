@@ -73,8 +73,6 @@ body{
     border: 1px solid black;
     list-style: none;  
     background-color: lightgrey;
-    margin-left: -20px;
-    margin-right: 16px;
     height: 45px;
     width: 90%;
 }

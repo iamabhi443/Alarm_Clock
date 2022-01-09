@@ -15,7 +15,7 @@ var alarmList = [];  // Stores all the alarms being set
 
 function ringing(now) {
     audio.play();
-    alert(`Hey! it is ${now}`);
+   // alert(`Hey! it is ${now}`);
 }
 
 
