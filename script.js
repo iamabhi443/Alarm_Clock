@@ -35,7 +35,7 @@ function showTime() {
 
     if (hour == 0) {
         session = "AM";
-        hour = 0;
+        hour = 12;
     }
 
     if (hour < 10) {
