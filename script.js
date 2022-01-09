@@ -11,7 +11,7 @@ let alarmTimeout = null;
 const myList = document.querySelector('#myList');
 const addAlarm = document.querySelector('.setAlarm');
 
-const alarmList = [];  // Stores all the alarms being set 
+var alarmList = [];  // Stores all the alarms being set 
 
 function ringing(now) {
     audio.play();
@@ -26,7 +26,7 @@ function showTime() {
     var seconds = time.getSeconds();
     var session = "AM";
 
-    var now = `${hour}:${minutes}:${seconds} ${session}`;
+    // var now = `${hour}:${minutes}:${seconds} ${session}`;
 
     if (hour > 12) {
         session = "PM";
@@ -51,17 +51,16 @@ function showTime() {
     }
 
     var currentTime = `${hour}:${minutes}:${seconds} ${session}`;
-
+    
     display.innerHTML = currentTime;
 
     // check if alarmList includes the current time, "now"
     // if yes,ringing() is called
-    if (alarmList.includes(now)) {
-        ringing(now);
+    if (alarmList.includes(currentTime)) {
+        ringing(currentTime);
+        console.log("alert");
     }
 }
-
-showTime();
 
 //update showTime in every second
 setInterval(showTime, 1000);
@@ -98,7 +97,7 @@ function showNewAlarm(newAlarm) {
     const html = `
     <li class = "time-list">        
         <span class="time">${newAlarm}</span>
-        <button class="deleteAlarm time-control" id="delete-button" onclick = "remove(this.value)" value=${newAlarm}>Delete Alarm</button>       
+        <button class="deleteAlarm" id="delete-button" onclick = "remove(this.value)" value=${newAlarm}>Delete Alarm</button>       
     </li>`
     
     myList.innerHTML += html;
@@ -119,7 +118,9 @@ addAlarm.addEventListener('submit', e=>{
 
     //add newAlarm to alarmList
     if(isNaN(newAlarm)){
+
         if(!alarmList.includes(newAlarm)){
+            console.log(newAlarm);
             alarmList.push(newAlarm);
             console.log(alarmList);
             console.log(alarmList.length);
@@ -132,4 +133,5 @@ addAlarm.addEventListener('submit', e=>{
     }else{
         alert("Invalid Time Entered");
     }
+
 })
