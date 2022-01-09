@@ -58,12 +58,19 @@ function showTime() {
     // if yes,ringing() is called
     if (alarmList.includes(currentTime)) {
         ringing(currentTime);
-        console.log("alert");
     }
 }
 
 //update showTime in every second
 setInterval(showTime, 1000);
+
+//To format time
+function formatTime(time) {
+    if(time < 10 && time.length != 2){
+        return '0' + time;
+    }
+    return time;
+}
 
 //function to clear/stop the currently playing alarm
 function clearAlarm() {
@@ -109,9 +116,9 @@ addAlarm.addEventListener('submit', e=>{
     console.log("button clicked");
     e.preventDefault();
 
-    let newHour = addAlarm.hours.value;
-    let newMinute = addAlarm.minutes.value;
-    let newSecond = addAlarm.seconds.value;
+    let newHour = formatTime(addAlarm.hours.value);
+    let newMinute = formatTime(addAlarm.minutes.value);
+    let newSecond = formatTime(addAlarm.seconds.value);
     let newSessions = addAlarm.sessions.value;
 
     const newAlarm = `${newHour}:${newMinute}:${newSecond} ${newSessions}`;
