@@ -59,10 +59,12 @@ function showTime() {
     if (alarmList.includes(currentTime)) {
         ringing(currentTime);
     }
+    setTimeout(function(){showTime()},1000);
 }
+showTime();
 
 //update showTime in every second
-setInterval(showTime, 1000);
+// setInterval(showTime, 1000);
 
 //To format time
 function formatTime(time) {
